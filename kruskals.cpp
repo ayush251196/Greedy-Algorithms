@@ -15,15 +15,15 @@ int main(){
 		arr[i]=make_pair(edge,make_pair(v1,v2));
 		dis[v1]=v1;dis[v2]=v2;
 	}
-	sort(arr,arr+n);
+	sort(arr,arr+n);int sum=0;
+	cout<<endl;
 	for(int i=0;i<n;i++){
 		int edge=arr[i].first;
-	//	cout<<edge<<endl;
 		pair<int ,int> ver=arr[i].second;
 		int u=ver.first;
 		int v=ver.second;
-	//	cout<<dis[u]<<" "<<dis[v]<<endl;
 		if(dis[u]!=dis[v]){
+			sum=sum+edge;
 			int temp=dis[v];
 			for(int i=1;i<n;i++){
 				if(dis[i]==temp){
@@ -33,5 +33,6 @@ int main(){
 			cout<<u<<" to "<<v<<endl;
 		}
 	}
+	cout<<"The minimum spanning tree is of length:"<<sum;
 	
 }
